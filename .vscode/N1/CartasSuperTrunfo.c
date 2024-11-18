@@ -13,9 +13,9 @@ int main() {
     char pais[50];
     char codigo[10];
     char cidade[50];
-    float populacao;
-    float area;
-    float PIB;
+    float populacao; // em milhões
+    float area;      // em km²
+    float PIB;      // em bilhões     
     int numero_de_pontos_turisticos;
     
     // Cadastro das Cartas:
@@ -26,7 +26,7 @@ int main() {
     scanf("%s", pais);
 
     printf("Digite codigo da cidade: \n");
-    scanf("%s", &codigo);
+    scanf("%s", codigo);
 
     printf("Digite nome da cidade: \n");
     scanf("%s", cidade);
@@ -54,6 +54,25 @@ int main() {
     printf("Área da Cidade: %.2f km² \n", area);
     printf("PIB da cidade: %.2f bilhões \n", PIB);
     printf("Número de Pontos Turísticos: %d \n", numero_de_pontos_turisticos);
+
+
+    // Nivel 2 - Densidade demografia e pib per capita
+    float densidade_populacional = populacao * 1000000 / area; // Converte população para habitantes e calcula
+    float pib_per_capita = PIB * 1000000000 / (populacao * 1000000); // Converte PIB e população para a unidade correta
+
+    // Exibição dos dados
+    printf("\n--- Dados da Carta ---\n");
+    printf("Nome do País: %s \n", pais);
+    printf("Codigo da Cidade: %s \n", codigo);
+    printf("Nome da cidade: %s \n", cidade);
+    printf("População da cidade: %.2f milhões \n", populacao);
+    printf("Área da Cidade: %.2f km² \n", area);
+    printf("PIB da cidade: %.2f bilhões \n", PIB);
+    printf("Número de Pontos Turísticos: %d \n", numero_de_pontos_turisticos);
+
+    // Exibição das novas propriedades calculadas
+    printf("Densidade Populacional: %.2f habitantes/km² \n", densidade_populacional);
+    printf("PIB per Capita: %.2f reais/habitante \n", pib_per_capita);
 
     return 0;
 }
